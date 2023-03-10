@@ -15,22 +15,73 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         //1- Adapter View : Listview
-        var listview : ListView = findViewById(R.id.listview)
+        var listview: ListView = findViewById(R.id.listview)
 
-        //2- Data Source : Array (of Integer, Strings...)
-        val movieArray = arrayOf(
-            "Hangover", "MNIK", "OSO", "Fan", "Swades"
+        // 2- Adapter
+        var adapter = MyAdapter(this, generateData())
+
+        listview.adapter = adapter
+        adapter?.notifyDataSetChanged()
+    }
+
+    // 3- Data Source
+    fun generateData(): ArrayList<ActorModel> {
+        var movieList = ArrayList<ActorModel>()
+
+        var movie1: ActorModel = ActorModel(
+            "Hangover",
+            "Zach",
+            R.drawable.hangover
+        )
+        var movie2: ActorModel = ActorModel(
+            "MNIK",
+            "SRK",
+            R.drawable.mnik
         )
 
-        //3- Adapter
-        val arrayAdapter : ArrayAdapter<*>
-
-        arrayAdapter = ArrayAdapter(
-            this,
-            android.R.layout.simple_list_item_1,
-            movieArray
+        var movie3: ActorModel = ActorModel(
+            "oso",
+            "SRK",
+            R.drawable.oso
         )
 
-        listview.adapter = arrayAdapter
+        var movie4: ActorModel = ActorModel(
+            "fan",
+            "SRK",
+            R.drawable.fan
+        )
+        var movie5: ActorModel = ActorModel(
+            "Swades",
+            "SRK",
+            R.drawable.swades
+        )
+        var movie6: ActorModel = ActorModel(
+            "fan",
+            "SRK",
+            R.drawable.fan
+        )
+
+        var movie7: ActorModel = ActorModel(
+            "fan",
+            "SRK",
+            R.drawable.fan
+        )
+
+        var movie8: ActorModel = ActorModel(
+            "fan",
+            "SRK",
+            R.drawable.fan
+        )
+        movieList.add(movie1)
+        movieList.add(movie2)
+        movieList.add(movie3)
+        movieList.add(movie4)
+        movieList.add(movie5)
+        movieList.add(movie6)
+        movieList.add(movie7)
+        movieList.add(movie8)
+
+        return movieList
+
     }
 }
